@@ -1,0 +1,21 @@
+.class_container{
+	@include clearfix;
+	margin-bottom:2.0em;
+	li{
+		list-style: square;
+	}
+	@media only screen and (max-width: 1599px) {
+		padding: 0 1.0em 2.0em;
+	}
+	a.reserve_button{
+		padding:0.5em 1.0em;
+		background-color: transparent;
+		border: 1px solid $blackboard;
+		color:$blackboard;
+		transition: all 0.5s linear;
+		&:hover{
+			background-color: $oxblood;
+			color:#fff;
+		}
+	}
+}
