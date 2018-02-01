@@ -33,11 +33,10 @@ Template Name: river_report
     }
   ?>
 
-<section class="fixed_img_container">
-  <img src="<?php echo get_post_meta( $post->ID, '_cmb2_report_image', true ); ?>" />
+<section id="main_header_image" class="fixed_img_container">
 </section>
 <section class="river_title">
-  <h1><?php the_title() ?><?php echo $report_id ?></h1>
+  <h1><?php the_title() ?></h1>
 </section>
 
 <div class="sliding_content_container row">
@@ -48,10 +47,8 @@ Template Name: river_report
               
               <div class="card-block">
                
-                  <h2 class="river_name"><?php the_title(); ?></h2>
-                  <?php if (!empty($subtitle)){ ?>
-                    <h3 class="river_sub_title"><?php echo $subtitle ?></h3> 
-                  <?php } ?>
+                  <h2 id="lower_title"class="river_name"></h2>
+                  <div id="area_sub_title"></div>
                  
                 <?php echo wpautop(get_post_meta( $post->ID, '_cmb2_river_description', true )); ?>
                 <h3>Guide Report</h3>

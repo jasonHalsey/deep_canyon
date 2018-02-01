@@ -14,9 +14,11 @@ window.onload = function(){
       var flowLat = response.siteLat;
       var flowLong = response.siteLong;
       var zoomLevel = response.zoomLevel;
+      var bgimage = response.bgimage;
+      var subTitle = response.subTitle;
  
+      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle);
 
-      initialise(flowLat, flowLong, zoomLevel);
   
     } else {
       console.log("We connected to the server, but it returned an error.");
@@ -37,14 +39,27 @@ function createVars(postsData) {
         siteLong : postsData.cmb2.report_metabox._cmb2_siteLong,
         zoomLevel : postsData.cmb2.report_metabox._cmb2_zoomLevel,
         bgimage : postsData.cmb2.report_metabox._cmb2_report_image,
+        subTitle : postsData.cmb2.report_metabox._cmb2_sub_title,
     }
  }
 
 
 
-function initialise (flowLat, flowLong, zoomLevel) {
+function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle) {
 
   var url = "http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
+  
+
+  //Populate Additional Contenet
+  var imageContainer = document.getElementById("main_header_image");
+  var subTitleContain = document.getElementById("area_sub_title");
+  var imagePopHTML = '';
+  var subTitlePopHTML = '';
+  imagePopHTML = '<img src="' + bgimage + '" />';
+  subTitlePopHTML = '<h3 class="river_sub_title">' + subTitle + '</h3>';
+  imageContainer.innerHTML = imagePopHTML;
+  subTitleContain.innerHTML = subTitlePopHTML;
+
 
   jQuery.getJSON(url, function (json) {
 
