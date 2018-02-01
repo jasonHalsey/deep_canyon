@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 
 window.onload = function(){
   var ourRequest = new XMLHttpRequest();
-  ourRequest.open('GET', 'http://www.confluenceflyshop.com/wp-json/wp/v2/report/32');
+  ourRequest.open('GET', 'http://www.confluenceflyshop.com/wp-json/wp/v2/report/' + pageId + '');
   ourRequest.onload = function() {
 
     if (ourRequest.status >= 200 && ourRequest.status < 400) {
@@ -14,6 +14,7 @@ window.onload = function(){
       var flowLat = response.siteLat;
       var flowLong = response.siteLong;
       var zoomLevel = response.zoomLevel;
+ 
 
       initialise(flowLat, flowLong, zoomLevel);
   
@@ -35,6 +36,7 @@ function createVars(postsData) {
         siteLat: postsData.cmb2.report_metabox._cmb2_siteLat,
         siteLong : postsData.cmb2.report_metabox._cmb2_siteLong,
         zoomLevel : postsData.cmb2.report_metabox._cmb2_zoomLevel,
+        bgimage : postsData.cmb2.report_metabox._cmb2_report_image,
     }
  }
 

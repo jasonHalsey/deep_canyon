@@ -21,7 +21,7 @@ Template Name: river_report
   
   <?php
     if (empty($usgs_site)) {
-      
+       include(locate_template('inc/manual.php'));
   ?>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/noFlow.js"></script>
   <?php
@@ -37,7 +37,7 @@ Template Name: river_report
   <img src="<?php echo get_post_meta( $post->ID, '_cmb2_report_image', true ); ?>" />
 </section>
 <section class="river_title">
-  <h1><?php the_title() ?></h1>
+  <h1><?php the_title() ?><?php echo $report_id ?></h1>
 </section>
 
 <div class="sliding_content_container row">
