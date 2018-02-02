@@ -6,9 +6,5 @@
   }
 ?>
 <script type="text/javascript">
-  // var siteLat = '<?php echo $siteLat ?>';
-  // var siteLong = '<?php echo $siteLong ?>';
-  // var zoomLevel = '<?php echo $zoomLevel ?>';
   var pageId = '<?php echo $report_id ?>';
-
 </script>

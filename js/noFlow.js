@@ -4,6 +4,7 @@ jQuery(document).ready(function(){
 
 
 window.onload = function(){
+// function gather_api() { 
   var ourRequest = new XMLHttpRequest();
   ourRequest.open('GET', 'http://www.confluenceflyshop.com/wp-json/wp/v2/report/' + pageId + '');
   ourRequest.onload = function() {
@@ -16,9 +17,12 @@ window.onload = function(){
       var zoomLevel = response.zoomLevel;
       var bgimage = response.bgimage;
       var subTitle = response.subTitle;
- 
-      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle);
+      var riverReport = response.riverReport;
+      var guideReport = response.guideReport;
+      var modifiedDate = response.modifiedDate;
 
+ 
+      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate);
   
     } else {
       console.log("We connected to the server, but it returned an error.");
@@ -40,12 +44,15 @@ function createVars(postsData) {
         zoomLevel : postsData.cmb2.report_metabox._cmb2_zoomLevel,
         bgimage : postsData.cmb2.report_metabox._cmb2_report_image,
         subTitle : postsData.cmb2.report_metabox._cmb2_sub_title,
+        riverReport : postsData.cmb2.report_metabox._cmb2_river_description,
+        guideReport : postsData.cmb2.report_metabox._cmb2_guide_report,
+        modifiedDate : postsData.modified,
     }
  }
 
 
 
-function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle) {
+function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate) {
 
   var url = "http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
   
@@ -53,13 +60,24 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle) {
   //Populate Additional Contenet
   var imageContainer = document.getElementById("main_header_image");
   var subTitleContain = document.getElementById("area_sub_title");
+  var guideReportContain = document.getElementById("guide_report");
+  var riverReportContain = document.getElementById("river_report");
+  
   var imagePopHTML = '';
   var subTitlePopHTML = '';
+  var riverReportPopHTML = '';
+  var guideReportPopHTML = '';
+
   imagePopHTML = '<img src="' + bgimage + '" />';
   subTitlePopHTML = '<h3 class="river_sub_title">' + subTitle + '</h3>';
+  riverReportPopHTML = '<p>' + riverReport + '</p>';
+  guideReportPopHTML = '<p>' + guideReport + '</p>';
+
   imageContainer.innerHTML = imagePopHTML;
   subTitleContain.innerHTML = subTitlePopHTML;
-
+  riverReportContain.innerHTML = riverReportPopHTML;
+  guideReportContain.innerHTML = guideReportPopHTML;
+console.log(modifiedDate);
 
   jQuery.getJSON(url, function (json) {
 
@@ -190,5 +208,11 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle) {
         jQuery('#weather_icon').addClass('diw-sun')
       }
   });
+
+  var elemSpin = document.querySelector('#spin-loader');
+  elemSpin.style.display = 'none';
+
+  var imageContainer = document.getElementById("loaded-content");
+  imageContainer.classList.remove('fade-out');
 
 }
