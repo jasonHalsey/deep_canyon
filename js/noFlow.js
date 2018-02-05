@@ -20,9 +20,10 @@ window.onload = function(){
       var riverReport = response.riverReport;
       var guideReport = response.guideReport;
       var modifiedDate = response.modifiedDate;
+      var speciesList = response.speciesList;
 
- 
-      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate);
+      console.log(speciesList);
+      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList);
   
     } else {
       console.log("We connected to the server, but it returned an error.");
@@ -47,21 +48,23 @@ function createVars(postsData) {
         riverReport : postsData.cmb2.report_metabox._cmb2_river_description,
         guideReport : postsData.cmb2.report_metabox._cmb2_guide_report,
         modifiedDate : postsData.modified,
+        speciesList : postsData.cmb2.report_metabox._cmb2_species_multicheckbox,
     }
  }
 
 
 
-function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate) {
+function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList) {
 
   var url = "http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
   
 
-  //Populate Additional Contenet
+  //Populate Additional Content
   var imageContainer = document.getElementById("main_header_image");
   var subTitleContain = document.getElementById("area_sub_title");
   var guideReportContain = document.getElementById("guide_report");
   var riverReportContain = document.getElementById("river_report");
+  var speciesListContain = document.getElementById("the_species_list");
   
   var imagePopHTML = '';
   var subTitlePopHTML = '';
@@ -73,11 +76,25 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
   riverReportPopHTML = '<p>' + riverReport + '</p>';
   guideReportPopHTML = '<p>' + guideReport + '</p>';
 
+  //Loop Through Targeted Species List
+    var myObj, i, x = "";
+      myObj = speciesList;
+
+      for (i = 0; i < myObj.length; i++) {
+        var speciesTitle = myObj[i].replace(/_|\d|-|\./g, ' ');
+          x += '<li class="' + myObj[i] + 'species_box"><img src="' + templatePathDCO +'/images/species_' + myObj[i] + '.gif" /><h6 class="species_title">&mdash;&nbsp;' + speciesTitle + '&mdash;&nbsp;</h6></li>';
+      }
+
+
   imageContainer.innerHTML = imagePopHTML;
   subTitleContain.innerHTML = subTitlePopHTML;
   riverReportContain.innerHTML = riverReportPopHTML;
   guideReportContain.innerHTML = guideReportPopHTML;
-console.log(modifiedDate);
+  speciesListContain.innerHTML = x;
+  
+  console.log(modifiedDate);
+
+  //End of API Population
 
   jQuery.getJSON(url, function (json) {
 
