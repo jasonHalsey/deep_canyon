@@ -21,9 +21,10 @@ window.onload = function(){
       var guideReport = response.guideReport;
       var modifiedDate = response.modifiedDate;
       var speciesList = response.speciesList;
+      var hatchList = response.hatchList;
 
-      console.log(speciesList);
-      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList);
+      console.log(hatchList);
+      initialise(flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList);
   
     } else {
       console.log("We connected to the server, but it returned an error.");
@@ -49,12 +50,13 @@ function createVars(postsData) {
         guideReport : postsData.cmb2.report_metabox._cmb2_guide_report,
         modifiedDate : postsData.modified,
         speciesList : postsData.cmb2.report_metabox._cmb2_species_multicheckbox,
+        hatchList : postsData.cmb2.report_metabox._cmb2_hatches_multicheckbox,
     }
  }
 
 
 
-function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList) {
+function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList) {
 
   var url = "http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
   
@@ -65,6 +67,7 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
   var guideReportContain = document.getElementById("guide_report");
   var riverReportContain = document.getElementById("river_report");
   var speciesListContain = document.getElementById("the_species_list");
+  var hatchListContain = document.getElementById("the_hatch_list");
   
   var imagePopHTML = '';
   var subTitlePopHTML = '';
@@ -85,12 +88,22 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
           x += '<li class="' + myObj[i] + 'species_box"><img src="' + templatePathDCO +'/images/species_' + myObj[i] + '.gif" /><h6 class="species_title">&mdash;&nbsp;' + speciesTitle + '&mdash;&nbsp;</h6></li>';
       }
 
+  //Loop Through Hatch List
+    var hatchObj, a, b = "";
+      hatchObj = hatchList;
 
+      for (a = 0; a < hatchObj.length; a++) {
+        // var speciesTitle = hatchObj[i].replace(/_|\d|-|\./g, ' ');
+          b += '<li class="hatch_box" />' + hatchObj[a] + '</li>';
+      }
+
+  // Replace conent of container elements with API generated content
   imageContainer.innerHTML = imagePopHTML;
   subTitleContain.innerHTML = subTitlePopHTML;
   riverReportContain.innerHTML = riverReportPopHTML;
   guideReportContain.innerHTML = guideReportPopHTML;
   speciesListContain.innerHTML = x;
+  hatchListContain.innerHTML = b;
   
   console.log(modifiedDate);
 

@@ -93,53 +93,12 @@ Template Name: river_report
               
             </ul> 
 
-            <?php
-              if (!empty($hatches)) {
-            ?>
             <h3>Current Hatches</h3>                     
-            <ul class="hatch_list">
-              <?php 
-                foreach($hatches as $bugs): ?>
-                  <li class="<?php echo $bugs; ?> hatch_box">
-                    <h5><?php echo $bugs; ?></h5>
-                  </li>
-              <?php endforeach; ?>
+            <ul id="the_hatch_list">
+
             </ul>
-            <?php } ?>
-            <?php 
-              if (!empty($hotFlies)) {
-            ?>
-            <h3>Hot Flies</h3>                     
-            <dl class="accordion">
-                  <?php
-                    $entrie_fly = get_post_meta( get_the_ID(), '_cmb2_fly_image', true ); 
-                    foreach( $entrie_fly as $key => $person ) { 
-                      foreach( $person as $attribute => $value ) {
-                      $image = get_post($attribute);
-                      $image_title = $image->post_title;
-                      $image_shopify = $image->be_shopify_url;
-                  ?>
-                  
-                    <dt><a href=""><?php echo($image_title); ?><span class="fly_btn icon-circle-down"></span></a></dt>
-                    <?php 
-                      if (!empty($image_shopify)) {
-                    ?>
-                    <dd>
-                      <a href="<?php echo($image_shopify); ?>">
-                        <img src="<?php echo $value ?>" class="hfly_image" />
-                        <div class="overlay">
-                          <div class="text">Buy It<br />Now</div>
-                        </div>
-                    </a></dd>
-                    <?php }else { ?>
-                    <dd><img src="<?php echo $value ?>" class="hfly_image" /></dd>
-                    <?php } ?>
-                  <?php } }
-                  ?>
-                </dl> 
-            <?php
-              }
-            ?> 
+  
+           
             <?php 
               if (!empty($steelheadCount)){
             ?>
