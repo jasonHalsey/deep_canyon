@@ -2,8 +2,132 @@ jQuery(document).ready(function(){
   L.mapbox.accessToken = 'pk.eyJ1IjoiamFzb25oYWxzZXkiLCJhIjoiY2lrZm5oOWh3MDAxeHUza2w5MnM2aHdzYSJ9.WXf_OK1N34LKLlkBHCt_9w';
 });
 
+
+window.onload = function(){
+// function gather_api() { 
+  var ourRequest = new XMLHttpRequest();
+  ourRequest.open('GET', 'http://www.confluenceflyshop.com/wp-json/wp/v2/report/' + pageId + '');
+  ourRequest.onload = function() {
+
+    if (ourRequest.status >= 200 && ourRequest.status < 400) {
+      var data = JSON.parse(ourRequest.responseText);
+      var response = createVars(data);
+      // var flowLat = response.siteLat;
+      // var flowLong = response.siteLong;
+      var usgsNumber = response.usgsNumber;
+      var zoomLevel = response.zoomLevel || 18;
+      var bgimage = response.bgimage;
+      var subTitle = response.subTitle;
+      var riverReport = response.riverReport;
+      var guideReport = response.guideReport;
+      var modifiedDate = response.modifiedDate;
+      var speciesList = response.speciesList;
+      var hatchList = response.hatchList;
+
+      console.log(hatchList);
+      initialise(usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList);
+  
+    } else {
+      console.log("We connected to the server, but it returned an error.");
+    }
+  };
+
+  ourRequest.onerror = function() {
+    console.log("Connection error");
+  };
+
+  ourRequest.send();
+  
+}
+
+function createVars(postsData) {
+    return {
+        usgsNumber : postsData.cmb2.report_metabox._cmb2_siteNum,
+        zoomLevel : postsData.cmb2.report_metabox._cmb2_zoomLevel,
+        bgimage : postsData.cmb2.report_metabox._cmb2_report_image,
+        subTitle : postsData.cmb2.report_metabox._cmb2_sub_title,
+        riverReport : postsData.cmb2.report_metabox._cmb2_river_description,
+        guideReport : postsData.cmb2.report_metabox._cmb2_guide_report,
+        modifiedDate : postsData.modified,
+        speciesList : postsData.cmb2.report_metabox._cmb2_species_multicheckbox,
+        hatchList : postsData.cmb2.report_metabox._cmb2_hatches_multicheckbox,
+    }
+ }
+
+
+
+function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList) {
+
+  var flowAPI = 'https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=' + usgsNumber + '&parameterCd=00060,00065&siteType=ST';
+
+  //Populate Additional Content
+  var imageContainer = document.getElementById("main_header_image");
+  var subTitleContain = document.getElementById("area_sub_title");
+  var guideReportContain = document.getElementById("guide_report");
+  var riverReportContain = document.getElementById("river_report");
+  var speciesListContain = document.getElementById("the_species_list");
+  var hatchListContain = document.getElementById("the_hatch_list");
+  
+  var imagePopHTML = '';
+  var subTitlePopHTML = '';
+  var riverReportPopHTML = '';
+  var guideReportPopHTML = '';
+
+  imagePopHTML = '<img src="' + bgimage + '" />';
+  subTitlePopHTML = '<h3 class="river_sub_title">' + subTitle + '</h3>';
+  riverReportPopHTML = '<p>' + riverReport + '</p>';
+  guideReportPopHTML = '<p>' + guideReport + '</p>';
+
+  //Loop Through Targeted Species List
+    var myObj, i, x = "";
+      myObj = speciesList;
+
+      for (i = 0; i < myObj.length; i++) {
+        var speciesTitle = myObj[i].replace(/_|\d|-|\./g, ' ');
+          x += '<li class="' + myObj[i] + 'species_box"><img src="' + templatePathDCO +'/images/species_' + myObj[i] + '.gif" /><h6 class="species_title">&mdash;&nbsp;' + speciesTitle + '&mdash;&nbsp;</h6></li>';
+      }
+
+  //Loop Through Hatch List
+    var hatchObj, a, b = "";
+      hatchObj = hatchList;
+
+      for (a = 0; a < hatchObj.length; a++) {
+        // var speciesTitle = hatchObj[i].replace(/_|\d|-|\./g, ' ');
+          b += '<li class="hatch_box" />' + hatchObj[a] + '</li>';
+      }
+
+  // Replace conent of container elements with API generated content
+  imageContainer.innerHTML = imagePopHTML;
+  subTitleContain.innerHTML = subTitlePopHTML;
+  riverReportContain.innerHTML = riverReportPopHTML;
+  guideReportContain.innerHTML = guideReportPopHTML;
+  speciesListContain.innerHTML = x;
+  hatchListContain.innerHTML = b;
+  
+  console.log(modifiedDate);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var zoomLevel = zoomLevel;
-var flowAPI = 'https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=' + usgsNum + '&parameterCd=00060,00065&siteType=ST';
+// var flowAPI = 'https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=' + usgsNumber + '&parameterCd=00060,00065&siteType=ST';
    
 weatherFn = function(url) {
   jQuery.getJSON(url, function (json) {
@@ -70,7 +194,7 @@ weatherFn = function(url) {
     else if($.inArray(weatherWeather, ['Windy','Breezy','Fair and Windy','A Few Clouds and Windy','Partly Cloudy and Windy','Mostly Cloudy and Windy','Overcast and Windy']) >= 0) {
       jQuery('#weather_icon').addClass('diw-wind');
     }
-    else if($.inArray(weatherWeather, ['Showers in Vicinity','Scattered Showers','Showers in Vicinity Fog/Mist','Showers in Vicinity Fog','Showers in Vicinity Haze']) >= 0) {
+    else if($.inArray(weatherWeather, ['Showers','Showers in Vicinity','Scattered Showers','Showers in Vicinity Fog/Mist','Showers in Vicinity Fog','Showers in Vicinity Haze']) >= 0) {
       jQuery('#weather_icon').addClass('diw-cloud-drizzle');
     }
     else if($.inArray(weatherWeather, ['Thunderstorm in Vicinity','Thunderstorm in Vicinity Fog','Thunderstorm in Vicinity Haze']) >= 0) {
@@ -101,25 +225,28 @@ weatherFn = function(url) {
 }
 
 jQuery.getJSON(flowAPI, function (json) {
+
+ 
   var baseString = json.value.timeSeries[0]
   var createTime = baseString.values[0].value[0].dateTime
   var locationName = baseString.sourceInfo.siteName
   var flowNum = baseString.values[0].value[0].value
   var flowLat = baseString.sourceInfo.geoLocation.geogLocation.latitude
   var flowLong = baseString.sourceInfo.geoLocation.geogLocation.longitude
-  var extendedWeather = ('<a href="http://forecast.weather.gov/MapClick.php?lat=' + flowLat + '&lon=' + flowLong + '#.V1jqUsfCTzI" target="_blank">See Extended NOAA Forecast</a>');
-  var extendedFlow = ('<a href="http://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + usgsNum + '&parm_cd=00060&period=7" target="_blank">See Extended Flow Chart</a>');
+  var extendedWeather = ('<a href="https://forecast.weather.gov/MapClick.php?lat=' + flowLat + '&lon=' + flowLong + '#.V1jqUsfCTzI" target="_blank">See Extended NOAA Forecast</a>');
+  var extendedFlow = ('<a href="http://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + usgsNumber + '&parm_cd=00060&period=7" target="_blank">See Extended Flow Chart</a>');
   weatherFn("http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json");
   var map = L.mapbox.map('map-one', 'mapbox.satellite').setView([flowLat,flowLong], zoomLevel);
+  var url = "https://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
 
 
-  if(flowNum == null){ 
-    var flowLat = siteLat
-    var flowLong = siteLong
-  }else{
-    var flowLat = baseString.sourceInfo.geoLocation.geogLocation.latitude
-    var flowLong = baseString.sourceInfo.geoLocation.geogLocation.longitude
-  };
+  // if(flowNum == null){ 
+  //   var flowLat = siteLat
+  //   var flowLong = siteLong
+  // }else{
+  //   var flowLat = baseString.sourceInfo.geoLocation.geogLocation.latitude
+  //   var flowLong = baseString.sourceInfo.geoLocation.geogLocation.longitude
+  // };
  
  // Disable drag and zoom handlers.
   // map.dragging.disable();
@@ -172,3 +299,11 @@ jQuery.getJSON(flowAPI, function (json) {
       jQuery('#gauge').addClass('success');
     }
 })
+
+  var elemSpin = document.querySelector('#spin-loader');
+  elemSpin.style.display = 'none';
+
+  var imageContainer = document.getElementById("loaded-content");
+  imageContainer.classList.remove('fade-out');
+
+}

@@ -43,3 +43,15 @@ body.page-template-contact{
     padding-left: 1.0em;
   }
 }
+.static_img_container {
+  height: 60vh;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  img{
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+}

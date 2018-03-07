@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700|Roboto:400,700' rel='stylesheet' type='text/css'> -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <title>Confluence Fly Shop</title>
+    <title>Deep Canyon Outfitters</title>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/app.css">
 
     <style type="text/css">
@@ -20,7 +20,7 @@
 <?php get_template_part( 'inc/options'); ?>
 <div class="fixed_nav">
   <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
-    <img class="show-for-small-only" src="<?php echo bloginfo('template_directory'); ?>/images/title_shield.svg" alt="Confluence Fly Shop"/>
+    <img class="show-for-small-only" src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white.svg" alt="Confluence Fly Shop"/>
     <button class="menu-icon" type="button" data-toggle></button>
     <div class="title-bar-title"></div>
   </div>
@@ -29,7 +29,7 @@
 	    <ul class="dropdown menu" data-dropdown-menu>
         <li class="title_logo hide-for-small-only">
           <a href="<?php echo home_url( '/' ); ?>">
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/title_shield.svg" alt="Confluence Fly Shop"/>
+            <img src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white.svg" alt="Confluence Fly Shop"/>
           </a>
         </li>
 	    </ul>

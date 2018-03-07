@@ -99,11 +99,12 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 	  wp_enqueue_script('what');
 	  wp_enqueue_script('foundation');
-	  wp_enqueue_script('app');
+	  
 	  wp_enqueue_script('mapbox');
     wp_enqueue_script('moment');
     wp_enqueue_script('rss');
     wp_enqueue_script('rest');
+    wp_enqueue_script('app');
 	}
 	add_action( 'wp_footer', 'wpb_adding_scripts' ); 
 

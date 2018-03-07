@@ -18,9 +18,28 @@ Template Name: river_report
     $subtitle = get_post_meta( $post->ID, '_cmb2_sub_title', true );
     $crooked_river = get_post_meta( $post->ID, '_cmb2_crooked_river', true );
   ?> -->
+
+<?php
+
+// scriptType = 1 has USGS Num;
+// scriptType = 2 has NO USGS Num;
+  if( is_page('middle-deschutes')){
+    $report_id = 32;
+    $scriptType = 2;
+  } elseif( is_page('davis-lake')) {
+     $report_id = 123;
+     $scriptType = 2;
+  } elseif( is_page('mckenzie-river')) {
+     $report_id = 118;
+     $scriptType = 1;
+  } elseif( is_page('crooked-river')) {
+     $report_id = 115;
+     $scriptType = 2;
+  }
+?>
   
   <?php
-    if (empty($usgs_site)) {
+    if ($scriptType == 2) {
        include(locate_template('inc/manual.php'));
   ?>
     <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri() ?>/js/noFlow.js"></script>
@@ -35,14 +54,17 @@ Template Name: river_report
 
 <div id="spin-loader" class="spinner"></div>
 <section id="loaded-content" class="fade-out">
-  <section id="main_header_image" class="fixed_img_container">
-  </section>
-  <section class="river_title">
-    <h1><?php the_title() ?></h1>
-  </section>
+
+
+    <section id="main_header_image" class="fixed_img_container">
+    </section>
+  <section id="the_river_title" class="river_title">
+    </section>
+
 
   <div class="sliding_content_container row">
-    <section class="module content">
+      
+    <section class="module content report_page_content">
       <div class="container">
         <div class="large-8 medium-8 columns"> 
               <div class="card">
@@ -64,13 +86,13 @@ Template Name: river_report
                   <li class="list-group-item weather_weather">Loading...</li>
                   <li class="list-group-item ">Temp:&nbsp;<span class="weather_temp">Loading...</span></li>
                   <?php
-                    if (!empty($usgs_site)) {
+                   if ($scriptType == 1) {
                   ?>
                     <li class="list-group-item ">River Gauge:&nbsp;<span class="sitename">Loading...</span></li>
                     <li class="list-group-item ">Flow:&nbsp;<span class="flowNum">Loading...</span></li>
                     <li class="list-group-item ">Recorded At:&nbsp;<span class="createTime">Loading...</span></li>
                   <?php
-                    } elseif (!empty($crooked_river)){ ?>
+                    } elseif ($report_id == 115){ ?>
                     <?php include(locate_template('inc/crooked_flow.php')); ?>
                   <?php
                     }

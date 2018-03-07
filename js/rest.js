@@ -28,11 +28,20 @@ if (portfolioPostsContainer) {
     for (i = 0; i < postsData.length; i++) {
       var old_Link = postsData[i].link;
       var new_Link = old_Link.replace('http://confluenceflyshop.com/report/', 'http://localhost:8888/deep_canyon/');
+
+      ourHTMLString += '<div class="excerpt callout feed_block ">';
+      ourHTMLString += '<div class="feed_content">';
       ourHTMLString += '<h2>' + postsData[i].title.rendered + '</h2>';
+      ourHTMLString += '<div class="report_block">';
       ourHTMLString += postsData[i].cmb2.report_metabox._cmb2_guide_report;
-      ourHTMLString += '<a href=" ' + new_Link + '">' + postsData[i].title.rendered + '</a>';
+      // ourHTMLString += '<a href=" ' + new_Link + '">' + postsData[i].title.rendered + '</a>';
+      ourHTMLString += '<a href=" ' + new_Link + '"> Read More</a>';
+      ourHTMLString += '</div>';
+      ourHTMLString += '</div>';
+      ourHTMLString += '</div>';
 
     }
     portfolioPostsContainer.innerHTML = ourHTMLString;
   }
 }
+

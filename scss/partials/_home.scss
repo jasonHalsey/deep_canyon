@@ -75,7 +75,7 @@ ul{
     list-style: none;
 }
 .rev_slider_wrapper{
-    max-height: 97vh!important;
+    // max-height: 97vh!important;
 }
 .category_container{
     border-top: 1px solid $blackish;
@@ -95,7 +95,7 @@ ul{
 }
 .logo{
     width:20%;
-    height: calc(100vh);
+    // height: calc(100vh);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -121,7 +121,7 @@ ul{
 }
 #cta_row{
     // max-width: 100%;
-    margin:0.5em auto 1.0em;
+    margin:3.0em auto 1.0em;
     padding:0;
 }
 #yelp{
@@ -228,7 +228,8 @@ div.feed_block.light{
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    height: calc(100vh);
+    // height: calc(100vh);
+    @include clearfix;
 }
 
 .hero-arrow-down {

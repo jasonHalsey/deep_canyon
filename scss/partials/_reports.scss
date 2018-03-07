@@ -389,12 +389,27 @@ h6.species_title{
     padding:1.0em;
   }
 }
-
-.fixed_img_container img {
-    width: 100%;
-    height: auto;
+.fixed_img_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
 }
 
+.river_title{
+  padding-top: 30vh;
+}
+.sliding_content_container{
+  width:100%;
+  max-width: 100%!important;
+  padding-top: 20vh;
+}
+.report_page_content{
+  background-color: #fff;
+  padding:40px 4.0em!important;
+  @include clearfix;
+}
 .river_title h1 {
     color: rgba(255,255,255,0.8);
     font-size: 48px;
@@ -436,6 +451,26 @@ h6.species_title{
     display:none; 
   }
 }
+
+.river_header{
+  position:relative;
+  // .fixed_img_container{
+  //   position:absolute;
+  //   top:0;
+  //   left:0;
+  //   right:0;
+  //   bottom:0;
+  //   z-index: 100;
+  // }
+  .river_title{
+    z-index: 200;
+    position: absolute;
+    top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+}
+
 
 @-webkit-keyframes sk-rotateplane {
   0% { -webkit-transform: perspective(120px) }

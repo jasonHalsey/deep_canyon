@@ -7,13 +7,13 @@ get_header(); ?>
     <div class="hero_row">
       <div class="large-12 columns hero">
       <div class="logo">
-        <img src="<?php echo bloginfo('template_directory'); ?>/images/white_logo_600.png" alt="Confluence Fly Shop"/>
+        <img src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white.png" alt="Deep Canyon Outfitters"/>
       </div>
-        <?php echo do_shortcode("[rev_slider alias='homeSlider2']"); ?>
+        <?php echo do_shortcode("[rev_slider alias='homeSlide']"); ?>
       </div>
-      <div class="hero-arrow-down downarrow">
+      <!-- <div class="hero-arrow-down downarrow">
         <div class="chevron"></div>
-      </div>
+      </div> -->
     </div>
 
     <div id="cta_row" class="row ctas_row">
@@ -31,7 +31,7 @@ get_header(); ?>
         <figure class="effect-oscar">
           <img src="<?php echo bloginfo('template_directory'); ?>/images/guide_bg_2.jpg" alt="Guided Trips"/>
           <figcaption>
-            <h2>Guided <span>Trips</span></h2>
+            <h2>Camping <span>Trips</span></h2>
             <p>Book a trip to get your adventure started</p>
             <a href="<?php echo home_url( '/guided-trips' ); ?>">View more</a>
           </figcaption>     
@@ -42,7 +42,7 @@ get_header(); ?>
         <figure class="effect-oscar">
           <img src="<?php echo bloginfo('template_directory'); ?>/images/blog_bg_2.jpg" alt="Blog Posts"/>
           <figcaption>
-            <h2>Latest <span>Posts</span></h2>
+            <h2>Half Day<span>Trips</span></h2>
             <p>Stay Connected</p>
             <a href="<?php echo home_url( '/blog' ); ?>">View more</a>
           </figcaption>     
@@ -53,7 +53,7 @@ get_header(); ?>
         <figure class="effect-oscar">
           <img src="<?php echo bloginfo('template_directory'); ?>/images/Classes.jpg" alt="Fishing Events"/>
           <figcaption>
-            <h2 class="lng_title">Classes <span class="han-extra">&#33;</span> <span>Events</span></h2>
+            <h2 class="lng_title">Full Day<span>Trips</span></h2>
             <p>See What's Going On</p>
             <a href="<?php echo home_url( '/events' ); ?>">View more</a>
           </figcaption>     

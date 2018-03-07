@@ -1,11 +1,12 @@
 jQuery(document).foundation();
 
-$(window).on("load", function() {
-  pageContentOffset();
+jQuery(window).on("load", function() {
+  // pageContentOffset();
+  console.log('inside load');
 });
 
-jQuery(document).ready(function() {
 
+jQuery(document).ready(function() {
 
   function openFirstPanel(){
     jQuery('.accordion > dt:first-child').next().addClass('active').slideDown();
@@ -79,8 +80,8 @@ jQuery(document).ready(function() {
     h2.html(text.join(' '));
   });
 
-  moveCalNav();
-  pageTitleOffset();
+  // moveCalNav();
+  // pageTitleOffset();
   
 }); //End Main Doc Ready
 
@@ -90,8 +91,8 @@ jQuery(window).scroll(function(){
 });
 
 jQuery(window).resize(function(){
-    pageTitleOffset();
-    pageContentOffset()
+    // pageTitleOffset();
+    // pageContentOffset()
 });
 
 jQuery(window).scroll(function() {
@@ -121,12 +122,12 @@ function pageContentOffset() {
   jQuery('.sliding_content_container').css('margin-top',pushheight );
 }
 
-// Move Calendar's Navigation 
-function moveCalNav() {
-  var translate = jQuery('.ai1ec-pull-left');
-  jQuery(translate).detach();
-  jQuery('.ai1ec-calendar').prepend($(translate));
-}
+// // Move Calendar's Navigation 
+// function moveCalNav() {
+//   var translate = jQuery('.ai1ec-pull-left');
+//   jQuery(translate).detach();
+//   jQuery('.ai1ec-calendar').prepend($(translate));
+// }
 
 function pageTitleOffset() {
   var menuheight = jQuery(".fixed_nav").height();

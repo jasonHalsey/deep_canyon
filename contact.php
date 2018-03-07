@@ -4,10 +4,11 @@ Template Name: contact
 */
 get_header(); ?>
 
-<section class="static_img_container">
-  <?php 
+
+
+<?php 
   foreach(get_images_src('large','false') as $k => $i){
-    echo '<img src="'.$i[0].'">';
+    echo '<section class="static_img_container" style="background-image: url('.$i[0].')">';
     }
 ?>
 
@@ -28,7 +29,7 @@ get_header(); ?>
 
       <div class="large-6 columns">
         <h2>Get In Touch</h2>
-          <?php echo do_shortcode("[contact-form-7 id='68' title='contact_page']"); ?>        
+          <?php echo do_shortcode("[contact-form-7 id='30' title='ontact form 1']"); ?> 
       </div>
     </div>
     <div class="row">
@@ -43,18 +44,11 @@ get_header(); ?>
 
 
   <div class="large-4 medium-4 columns">
-    <h4>Upcoming Events</h4>
-    <div class="callout">
-      <?php echo do_shortcode("[ai1ec view='agenda']"); ?>
-    </div><!-- End callout -->
+
     <h4>Reviews</h4>
       <div id='yelpwidget' class="callout">
       </div><!-- End yelpwidget -->
-      <?php if ( is_active_sidebar( 'instagram_right_1' ) ) : ?>
-          <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-            <?php dynamic_sidebar( 'instagram_right_1' ); ?>
-          </div><!-- #primary-sidebar -->
-        <?php endif; ?>
+      
   </div><!-- End large-4 -->
 
 </div><!-- End row -->

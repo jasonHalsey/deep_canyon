@@ -26,7 +26,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamFzb25oYWxzZXkiLCJhIjoiY2lrZm5oOWh3MDAxeHUza
                     "coordinates": [-121.315573, 44.047014]
                 },
                 "properties": {
-                    "title": "Confluence Fly Shop",
+                    "title": "Deep Canyon Outfitters",
                     "marker-symbol": "monument"
                 }
             }]

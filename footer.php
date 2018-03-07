@@ -2,14 +2,14 @@
   <div class="row">
     
     <div class="small-12 medium-3  columns">
-      <p class="footer_logo hide-for-small-only"><i class="icon-solo_shield"></i>Confluence Fly Shop</p> 
-      <p class="footer_logo show-for-small-only"><i class="icon-reel_icon"></i> Confluence</p> 
+      <p class="footer_logo hide-for-small-only"><i class="icon-solo_shield"></i>Deep Canyon Outfitters</p> 
+      <p class="footer_logo show-for-small-only"><i class="icon-reel_icon"></i> Deep Canyon</p> 
 
       <ul class="inline-list social">
         <a href="https://www.facebook.com/ConfluenceFlyShop/?fref=ts"><i class="icon-facebook"></i></a>
         <a href="https://www.instagram.com/confluenceflyshop/"><i class="icon-instagram"></i></a>
       </ul>
-      <p class="copywrite">&copy; Confluence Fly Shop <?php echo date("Y"); ?></p>
+      <p class="copywrite">&copy; Deep Canyon Outfitters <?php echo date("Y"); ?></p>
     </div>
 
 
