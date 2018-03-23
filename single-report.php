@@ -35,7 +35,25 @@ Template Name: river_report
   } elseif( is_page('crooked-river')) {
      $report_id = 115;
      $scriptType = 2;
-  }
+  } elseif( is_page('lower-deschutes')) {
+     $report_id = 34;
+     $scriptType = 1;
+  } elseif( is_page('east-lake')) {
+     $report_id = 119;
+     $scriptType = 2;
+  } elseif( is_page('fall-river')) {
+     $report_id = 120;
+     $scriptType = 2;
+  } elseif( is_page('crane-prairie-reservoir')) {
+     $report_id = 121;
+     $scriptType = 2;
+  } elseif( is_page('hosmer-lake')) {
+     $report_id = 122;
+     $scriptType = 2;
+  } elseif( is_page('upper-deschutes-river')) {
+     $report_id = 2029;
+     $scriptType = 2;
+  } 
 ?>
   
   <?php

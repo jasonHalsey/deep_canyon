@@ -17,7 +17,10 @@ body.home{
             transition: box-shadow 0.3s ease-in-out;
         }
     }
-}
+    #metolius{
+        display:none;
+    }
+} //end body.home
 h1, h2, h3, h4, h5, h6{
     font-family: $primayHeaderFont;
 }
@@ -117,6 +120,17 @@ ul{
         display: block;
         width:100%;
         height:auto;
+    }
+    @media only screen and (max-width: 768px) {
+        padding-top:2.0em;
+
+    }
+    @media (max-width:668px) and (min-width:378px) {
+        padding-top: 0;
+        img{
+            margin: 0 auto;
+            width:60%;
+        }
     }
 }
 #cta_row{
@@ -219,8 +233,9 @@ div.feed_block.light{
     font-weight: 600;
     padding-right:0.75em;
     @media only screen and (max-width: 1040px) {
-        text-align: left;
-        margin-left: 0.5em;
+        // text-align: left;
+        // margin-left: 0.5em;
+        display:none;
     }
 }
 .hero_row{

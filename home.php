@@ -33,7 +33,7 @@ get_header(); ?>
           <figcaption>
             <h2>Camping <span>Trips</span></h2>
             <p>Book a trip to get your adventure started</p>
-            <a href="<?php echo home_url( '/guided-trips' ); ?>">View more</a>
+            <a href="<?php echo home_url( '/camping-trips' ); ?>">View more</a>
           </figcaption>     
         </figure>
       </div>
@@ -44,7 +44,7 @@ get_header(); ?>
           <figcaption>
             <h2>Half Day<span>Trips</span></h2>
             <p>Stay Connected</p>
-            <a href="<?php echo home_url( '/blog' ); ?>">View more</a>
+            <a href="<?php echo home_url( '/half-day-trips' ); ?>">View more</a>
           </figcaption>     
         </figure>
       </div>
@@ -55,7 +55,7 @@ get_header(); ?>
           <figcaption>
             <h2 class="lng_title">Full Day<span>Trips</span></h2>
             <p>See What's Going On</p>
-            <a href="<?php echo home_url( '/events' ); ?>">View more</a>
+            <a href="<?php echo home_url( '/full-day-trips' ); ?>">View more</a>
           </figcaption>     
         </figure>
       </div>

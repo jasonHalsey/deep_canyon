@@ -2,6 +2,10 @@
   width:100%;
   position:fixed;
   z-index:999;
+  top:0;
+  @media (max-width:668px) and (min-width:378px) {
+    position: relative;
+  }
 }
 
 .menu-icon{
@@ -18,11 +22,21 @@ $menu-background: $blackTrans;
 .title-bar {
   background: $menu-background;
   padding: 0.9rem;
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    padding-top:3.5em;
+    img{
+      max-width:72%;
+    }
+  }
 }
 
 .top-bar {
   background: $menu-background;
   padding: 1.25em 0 1.75em;
+  @media (max-width:668px) and (min-width:378px) {
+    padding: 0 0 0.25em;
+  }
   ul {
     background: none;
     padding-right:1.0em;
@@ -35,6 +49,10 @@ $menu-background: $blackTrans;
         font-family: $primayHeaderFont;
         font-weight: 600; 
         text-transform: capitalize;
+        @media (max-width:668px) and (min-width:378px) {
+          text-align: center;
+          img{margin-right:0!important;}
+        }
       }
     }
   }
@@ -44,7 +62,16 @@ $menu-background: $blackTrans;
     }
   }
 }
+.top-bar-left{
+  @media only screen and (max-width: 768px) {
+    float:none;
+    .menu>li{
+      display:block!important;
+      margin:0 auto;
+    }
 
+  }
+}
 
 /* Underline From Center */
 // .hvr-underline-from-center {
@@ -153,4 +180,10 @@ $menu-background: $blackTrans;
 
 .js-drilldown-back::before {
   border-color: transparent #fff transparent transparent;
+}
+
+.menu-main_1-container{
+  @media only screen and (max-width: 768px) {
+    display: none;
+    }
 }

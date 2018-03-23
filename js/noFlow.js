@@ -70,6 +70,7 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
   var speciesListContain = document.getElementById("the_species_list");
   var hatchListContain = document.getElementById("the_hatch_list");
   var riverTitleContain = document.getElementById("the_river_title");
+  var lowerRiverTitleContain = document.getElementById("lower_title");
   
   var imagePopHTML = '';
   var titlePopHTML = '';
@@ -104,6 +105,7 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
   // Replace conent of container elements with API generated content
   imageContainer.innerHTML = imagePopHTML;
   riverTitleContain.innerHTML = titlePopHTML;
+  lowerRiverTitleContain.innerHTML = titlePopHTML;
   subTitleContain.innerHTML = subTitlePopHTML;
   riverReportContain.innerHTML = riverReportPopHTML;
   guideReportContain.innerHTML = guideReportPopHTML;

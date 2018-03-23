@@ -24,12 +24,12 @@ if (portfolioPostsContainer) {
 
   function createHTML(postsData) {
     var ourHTMLString = '';
-    
+    var metoliousPost = document.getElementById("metolius");
     for (i = 0; i < postsData.length; i++) {
       var old_Link = postsData[i].link;
       var new_Link = old_Link.replace('http://confluenceflyshop.com/report/', 'http://localhost:8888/deep_canyon/');
 
-      ourHTMLString += '<div class="excerpt callout feed_block ">';
+      ourHTMLString += '<div class="excerpt callout feed_block" id="' + postsData[i].slug + '">';
       ourHTMLString += '<div class="feed_content">';
       ourHTMLString += '<h2>' + postsData[i].title.rendered + '</h2>';
       ourHTMLString += '<div class="report_block">';

@@ -24,7 +24,7 @@ body.page-template-contact{
 .contact_archive_hero{
   position: relative;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-color: $blackish;
   text-align: center;
@@ -44,11 +44,11 @@ body.page-template-contact{
   }
 }
 .static_img_container {
-  height: 60vh;
+  height: 72vh;
   background-attachment: fixed;
-  background-position: top;
+  background-position: bottom;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   img{
     position: relative;
     display: block;

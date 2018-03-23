@@ -2,7 +2,6 @@ jQuery(document).foundation();
 
 jQuery(window).on("load", function() {
   // pageContentOffset();
-  console.log('inside load');
 });
 
 
@@ -82,6 +81,7 @@ jQuery(document).ready(function() {
 
   // moveCalNav();
   // pageTitleOffset();
+  pageContentOffset();
   
 }); //End Main Doc Ready
 
@@ -92,7 +92,7 @@ jQuery(window).scroll(function(){
 
 jQuery(window).resize(function(){
     // pageTitleOffset();
-    // pageContentOffset()
+    pageContentOffset()
 });
 
 jQuery(window).scroll(function() {
@@ -115,6 +115,7 @@ jQuery(window).scroll(function() {
 function pageContentOffset() {
   var heroheight = jQuery(".fixed_img_container > img").height();
   var pushheight = (heroheight / 2) - 70;
+  console.log(pushheight);
   jQuery('.river_title h1').css({
     marginTop : pushheight,
     transition : 'margin-top 1s ease-in-out'

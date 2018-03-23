@@ -224,32 +224,6 @@ function post_type_testi()
   flush_rewrite_rules();
 }; 
 
-// ----------------- Creates Event Post Type
-add_action('init', 'post_type_event');
-function post_type_event() 
-{
-  $labels = array(
-    'name' => _x('Classes', 'post type general name'),
-    'singular_name' => _x('Class', 'post type singular name'),
-    'add_new' => _x('Add New Class', 'event'),
-    'add_new_item' => __('Add New Class')
-  );
- 
- $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'event' ),
-    'capability_type' => 'post',
-    'hierarchical' => true,
-    'menu_position' => null,
-    'supports' => array('title')
-    ); 
-  register_post_type('event',$args);
-  flush_rewrite_rules();
-}; 
 
 // ----------------- Creates Staff Post Type
 add_action('init', 'post_type_staff');
@@ -279,32 +253,32 @@ function post_type_staff()
 }; 
 
 // ----------------- Creates Report Post Type
-add_action('init', 'post_type_report');
-function post_type_report() 
-{
-  $labels = array(
-    'name' => _x('Fishing Reports', 'post type general name'),
-    'singular_name' => _x('Fishing Report', 'post type singular name'),
-    'add_new' => _x('Add New Fishing Report', 'report'),
-    'add_new_item' => __('Add New Fishing Report')
-  );
+// add_action('init', 'post_type_report');
+// function post_type_report() 
+// {
+//   $labels = array(
+//     'name' => _x('Fishing Reports', 'post type general name'),
+//     'singular_name' => _x('Fishing Report', 'post type singular name'),
+//     'add_new' => _x('Add New Fishing Report', 'report'),
+//     'add_new_item' => __('Add New Fishing Report')
+//   );
  
- $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'report' ),
-    'capability_type' => 'post',
-    'hierarchical' => false,
-    'menu_position' => null,
-    'show_in_rest' => true,
-    'supports' => array('title','excerpt', 'thumbnail')
-    ); 
-  register_post_type('report',$args);
-  flush_rewrite_rules();
-};  
+//  $args = array(
+//     'labels' => $labels,
+//     'public' => true,
+//     'publicly_queryable' => true,
+//     'show_ui' => true, 
+//     'query_var' => true,
+//     'rewrite' => array( 'slug' => 'report' ),
+//     'capability_type' => 'post',
+//     'hierarchical' => false,
+//     'menu_position' => null,
+//     'show_in_rest' => true,
+//     'supports' => array('title','excerpt', 'thumbnail')
+//     ); 
+//   register_post_type('report',$args);
+//   flush_rewrite_rules();
+// };  
 
 /**
  * Include and setup custom metaboxes and fields. (make sure you copy this file to outside the CMB directory)

@@ -23,9 +23,10 @@ window.onload = function(){
       var modifiedDate = response.modifiedDate;
       var speciesList = response.speciesList;
       var hatchList = response.hatchList;
+      var riverTitle = response.riverTitle;
 
       console.log(hatchList);
-      initialise(usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList);
+      initialise(usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList, riverTitle);
   
     } else {
       console.log("We connected to the server, but it returned an error.");
@@ -51,12 +52,13 @@ function createVars(postsData) {
         modifiedDate : postsData.modified,
         speciesList : postsData.cmb2.report_metabox._cmb2_species_multicheckbox,
         hatchList : postsData.cmb2.report_metabox._cmb2_hatches_multicheckbox,
+        riverTitle : postsData.title.rendered,
     }
  }
 
 
 
-function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList) {
+function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList, riverTitle) {
 
   var flowAPI = 'https://waterservices.usgs.gov/nwis/iv/?format=json&indent=on&sites=' + usgsNumber + '&parameterCd=00060,00065&siteType=ST';
 
@@ -67,17 +69,23 @@ function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guid
   var riverReportContain = document.getElementById("river_report");
   var speciesListContain = document.getElementById("the_species_list");
   var hatchListContain = document.getElementById("the_hatch_list");
+  var riverTitleContain = document.getElementById("the_river_title");
+  var lowerRiverTitleContain = document.getElementById("lower_title");
   
   var imagePopHTML = '';
   var subTitlePopHTML = '';
   var riverReportPopHTML = '';
   var guideReportPopHTML = '';
+  var titlePopHTML = '';
 
-  imagePopHTML = '<img src="' + bgimage + '" />';
+  imagePopHTML = '<section class="static_img_container" style="background-image:url(' + bgimage + ');"></section>';
   subTitlePopHTML = '<h3 class="river_sub_title">' + subTitle + '</h3>';
   riverReportPopHTML = '<p>' + riverReport + '</p>';
   guideReportPopHTML = '<p>' + guideReport + '</p>';
+  titlePopHTML = '<h1>' + riverTitle + '</h1>';
 
+  console.log(titlePopHTML);
+  console.log(lowerRiverTitleContain);
   //Loop Through Targeted Species List
     var myObj, i, x = "";
       myObj = speciesList;
@@ -101,6 +109,8 @@ function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guid
   subTitleContain.innerHTML = subTitlePopHTML;
   riverReportContain.innerHTML = riverReportPopHTML;
   guideReportContain.innerHTML = guideReportPopHTML;
+  riverTitleContain.innerHTML = titlePopHTML;
+  lowerRiverTitleContain.innerHTML = titlePopHTML;
   speciesListContain.innerHTML = x;
   hatchListContain.innerHTML = b;
   
@@ -235,7 +245,7 @@ jQuery.getJSON(flowAPI, function (json) {
   var flowLong = baseString.sourceInfo.geoLocation.geogLocation.longitude
   var extendedWeather = ('<a href="https://forecast.weather.gov/MapClick.php?lat=' + flowLat + '&lon=' + flowLong + '#.V1jqUsfCTzI" target="_blank">See Extended NOAA Forecast</a>');
   var extendedFlow = ('<a href="http://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + usgsNumber + '&parm_cd=00060&period=7" target="_blank">See Extended Flow Chart</a>');
-  weatherFn("http://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json");
+  weatherFn("https://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json");
   var map = L.mapbox.map('map-one', 'mapbox.satellite').setView([flowLat,flowLong], zoomLevel);
   var url = "https://forecast.weather.gov/MapClick.php?lat=" + flowLat + "&lon=" + flowLong + "&FcstType=json"
 
