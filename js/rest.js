@@ -32,7 +32,7 @@ if (portfolioPostsContainer) {
       var new_Link = old_Link.replace('http://confluenceflyshop.com/report/', 'http://localhost:8888/deep_canyon/');
 
       var greport_title = postsData[i].title.rendered;
-      var split_report = greport_title.split(" ").join("<br />");
+      // var split_report = greport_title.split(" ").join("<br />");
 
   
       ourHTMLString += '<div class="excerpt callout feed_block" id="' + postsData[i].slug + '">';
