@@ -37,7 +37,7 @@ if (portfolioPostsContainer) {
   
       ourHTMLString += '<div class="excerpt callout feed_block" id="' + postsData[i].slug + '">';
       ourHTMLString += '<div class="feed_content">';
-      ourHTMLString += '<div class="report_title_block"><h2 class="report_header">' + split_report + '</h2></div>';
+      ourHTMLString += '<div class="report_title_block"><h2 class="report_header">' + greport_title + '</h2></div>';
       ourHTMLString += '<div class="report_block"><p>';
       ourHTMLString += postsData[i].cmb2.report_metabox._cmb2_guide_report;
       ourHTMLString += '<br /><a href=" ' + new_Link + '"> Read More</a></p>';
