@@ -176,9 +176,9 @@ div.author_block{
 }
 div.report_block{
     display:block;
-    float:right;
-    width:98%;
-    padding: 1.0em;
+    float:none;
+    // width:98%;
+    // padding: 1.0em;
 }
 div.feed_block{
     width:100%;
@@ -210,7 +210,27 @@ div.feed_row{
 div.feed_content{
     max-width: $max-width;
     margin: 0 auto;
+
 }
+#home-loaded-content{
+  min-height: 30vh;
+  opacity: 1;
+  transition: 2.5s opacity;
+  position:relative;
+}
+#home-loaded-content.fade-out {
+    opacity: 0;
+    transition: none;
+}
+#home-spin-loader{
+  // min-height: 100vh;
+  position:absolute;
+  left:0;
+  right:0;
+  top:50%;
+  bottom:0;
+}
+
 div.feed_block.light{
     color:#fff;
     .feed_content{

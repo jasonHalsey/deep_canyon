@@ -54,13 +54,6 @@ jQuery(document).ready(function() {
         scrollTop: jQuery("#cta_row").offset().top -menuheight }, 2000);
   });
 
-  jQuery(".icon-calendar").click(function() {
-    var menuheight = jQuery(".fixed_nav").height();
-    jQuery('html, body').animate({
-        scrollTop: jQuery("#cal-top").offset().top -menuheight }, 2000);
-  });
-
-
 	
   jQuery('ul#menu').addClass('vertical medium-horizontal menu');
   jQuery('ul#menu > li').addClass('hvr-underline-from-center');
@@ -69,7 +62,7 @@ jQuery(document).ready(function() {
   jQuery('figure.effect-oscar_report figcaption > h2').each(function () { 
     var h2 = jQuery(this);
     var charNum = h2.text().length;
-    if (charNum > 14){
+    if (charNum > 16){
       h2.addClass('long_h2');
     }
     var text = h2.text().split(' ');
@@ -77,11 +70,15 @@ jQuery(document).ready(function() {
         text[i] = '<span>' + text[i] + '</span>';
     }
     h2.html(text.join(' '));
+
+
+
   });
 
   // moveCalNav();
-  // pageTitleOffset();
+  pageTitleOffset();
   pageContentOffset();
+  // header_split();
   
 }); //End Main Doc Ready
 
@@ -91,7 +88,7 @@ jQuery(window).scroll(function(){
 });
 
 jQuery(window).resize(function(){
-    // pageTitleOffset();
+    pageTitleOffset();
     pageContentOffset()
 });
 
@@ -123,12 +120,6 @@ function pageContentOffset() {
   jQuery('.sliding_content_container').css('margin-top',pushheight );
 }
 
-// // Move Calendar's Navigation 
-// function moveCalNav() {
-//   var translate = jQuery('.ai1ec-pull-left');
-//   jQuery(translate).detach();
-//   jQuery('.ai1ec-calendar').prepend($(translate));
-// }
 
 function pageTitleOffset() {
   var menuheight = jQuery(".fixed_nav").height();
@@ -136,6 +127,8 @@ function pageTitleOffset() {
   var finishedheight = hHeight;
   jQuery('.river_archive_hero').css('height',menuheight );
 }
+
+
 
   // Add Yelp Reviews to Sidebar
  (function() { var s = document.createElement("script");s.async = true;s.onload = s.onreadystatechange = function(){getYelpWidget("deep-canyon-outfitters-bend","300","RED","y","y","3");};s.src='http://chrisawren.com/widgets/yelp/yelpv2.js' ;var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})();
@@ -167,29 +160,3 @@ function pageTitleOffset() {
       }, scroll_top_duration
     );
   });
-
-jQuery(function($) {
-  jQuery("#rss-feeds").rss("feed://www.fpc.org/rss/rssAdultCounts.aspx",
-      {
-        entryTemplate: '<p class="rss_title">Ending on {date}</p><p class="speciesCount">{shortBodyPlain}</p>',
-        layoutTemplate: "<div class='feed-container'>{entries}</div>",
-        success: function(){
-          var initialString = jQuery('p.speciesCount').text();
-          var dataArray = initialString .split(";");
-          var arr = $.makeArray( dataArray );
-          var steelhead =  arr[2];
-          var wild_steelhead =  arr[3];
-          //Replace Full RSS with just Steelhead count @ Bonneville Dam
-          jQuery("p.speciesCount").html("<ul><li>" + steelhead + "</li><li>" + wild_steelhead + "</li></ul>");
-          jQuery("h3.rss_title").unwrap();
-
-        },
-        dateFormat: 'M/D/YYYY',
-        limit: 100,
-        filterLimit: 10,
-        filter: function(entry, tokens) {
-        return tokens.title.indexOf('BONNEVILLE') > -1
-      }
-    })
-})
-

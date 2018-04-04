@@ -7,7 +7,7 @@ get_header(); ?>
     <div class="hero_row">
       <div class="large-12 columns hero">
       <div class="logo">
-        <img src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white.png" alt="Deep Canyon Outfitters"/>
+        <img src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white_shadow.png" alt="Deep Canyon Outfitters"/>
       </div>
         <?php echo do_shortcode("[rev_slider alias='homeSlide']"); ?>
       </div>
@@ -23,7 +23,7 @@ get_header(); ?>
           <figcaption>
             <h2 class="long_h2">Fishing <span>Reports</span></h2>
             <p>Get the latest intel from our guides</p>
-            <a href="<?php echo home_url( '/river-reports' ); ?>">View more</a>
+            <a href="<?php echo home_url( '/rivers' ); ?>">View more</a>
           </figcaption>     
         </figure>
       </div>
@@ -61,14 +61,26 @@ get_header(); ?>
       </div>
     </div>
 
-
 <div class="row feed_row">
+    <div class="feed_content">
+    <?php 
+      $id=111; 
+      $post = get_post($id); 
+      $content = apply_filters('the_content', $post->post_content); 
+      echo $content;  
+    ?>
+  </div>
+</div>
+<div class="row feed_row">
+  <div id="home-spin-loader" class="spinner"></div>
+  <section id="home-loaded-content" class="fade-out">
+    <div class="feed_content">
+      
+      <div id="portfolio-posts-container" ></div>
 
-  <div class="feed_content">
-    <div id="portfolio-posts-container"></div>
-  </div><!-- END FEED_CONTENT -->
+    </div><!-- END FEED_CONTENT -->
 
-
+  </section>
 </div><!-- END FEED_ROW -->
 
     

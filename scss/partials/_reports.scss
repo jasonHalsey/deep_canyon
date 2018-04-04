@@ -88,7 +88,7 @@ h3.river_sub_title{
   /* Anchor will cover the whole item by default */
   /* For some effects it will show as a button */
   figure figcaption > a {
-    z-index: 1000;
+    z-index: 888;
     text-indent: 200%;
     white-space: nowrap;
     font-size: 0;
@@ -158,7 +158,7 @@ h3.river_sub_title{
     -webkit-transform: translate3d(0,100%,0);
     transform: translate3d(0,100%,0);
     @include breakpoint(1600px) {
-      margin: 15% 0 10px 0
+      margin: 10px 0 10px 0
     }
     @include breakpoint(639px down) {
       margin: 30% 0 10px 0
@@ -178,12 +178,12 @@ h3.river_sub_title{
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
     @include breakpoint(1600px) {
-      margin: 15% 0 10px 0;
+      margin: -4% 0 10px 0;
     }
   }
 
   figure.effect-oscar_report h2.long_h2{
-    margin: 0% 0 10px 0;
+    margin: -14% 0 10px 0;
     &:hover{
       margin: 30% 0 10px 0;
     }
@@ -305,18 +305,18 @@ div.hot_flies{
 body.page-template-single-report{
   .river_title{
     padding-top: 36vh;
-    padding-bottom: 10vh; 
+    padding-bottom: 20vh; 
     @media (max-width:668px) and (min-width:378px) {
       padding-top: 10vh;
       padding-bottom: 7vh;
       display:none;
     } 
     @media only screen and (max-width: 400px) {
-        padding-top: 22vh;
+        padding-top: 34vh;
 
     } 
     @media (max-width:1023px) and (min-width:401px) {
-        padding-top: 22vh;
+        padding-top: 36vh;
 
     }
   }
@@ -337,6 +337,9 @@ section.module h2 {
 }
 h2#lower_title{
   margin-bottom: 5px;
+  @media only screen and (max-width: 400px) {
+      display:none;
+  }
 }
 section.module p {
   margin-bottom: 40px;

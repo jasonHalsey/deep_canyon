@@ -1,0 +1,35 @@
+body.page-template-trips{
+	.trip-row{
+		position:relative;
+		max-width: 100%;
+		width:100%;
+		background-color: #fff;
+	}
+	.trip_page_content{
+		background-color: #fff;
+	    padding: 40px 4em !important;
+	    margin: 0 auto;
+	    max-width: 1600px;
+	}
+	h2.mobile_title{
+		display:none;
+		font-family: $primayHeaderFont;
+	}
+	@media only screen and (max-width: 1200px) {
+		.river_title{
+			visibility:hidden;
+		}
+		h2.mobile_title{
+			display:block;
+		}
+	}
+	@media only screen and (max-width: 669px) {
+		.river_title{
+			display:none;
+		}
+		.trip-row{
+			margin-top: 10px!important;
+		}
+	}
+
+}

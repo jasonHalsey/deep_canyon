@@ -77,4 +77,11 @@ body.single-staff{
 	    background-color: #fff;
 	    padding-top:40px;
 	}
+	 @media only screen and (max-width: 768px) {
+	 	.river_title{
+	 		h1{
+	 			visibility:hidden;
+	 		}
+	 	}
+	 }
 }

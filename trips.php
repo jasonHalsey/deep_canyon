@@ -17,10 +17,11 @@ Template Name: trip template
 	</section>
 
 
-	<div class="sliding_content_container row">
+	<div class="sliding_content_container trip-row">
 
-		<section class="module content report_page_content">
+		<section class="module content trip_page_content">
 			<div class="container">
+				<h2 class="mobile_title"><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			</div>
 		</section>
