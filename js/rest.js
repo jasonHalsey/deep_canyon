@@ -29,18 +29,19 @@ if (portfolioPostsContainer) {
     var metoliousPost = document.getElementById("metolius");
     for (i = 0; i < postsData.length; i++) {
       var old_Link = postsData[i].link;
-      var new_Link = old_Link.replace('http://confluenceflyshop.com/report/', 'http://localhost:8888/deep_canyon/');
+      var new_url = window.location.href;
+      var new_Link = old_Link.replace('http://confluenceflyshop.com/report/', new_url);
 
       var greport_title = postsData[i].title.rendered;
-      // var split_report = greport_title.split(" ").join("<br />");
+      var split_report = greport_title.split(" ").join("<br />");
 
   
       ourHTMLString += '<div class="excerpt callout feed_block" id="' + postsData[i].slug + '">';
       ourHTMLString += '<div class="feed_content">';
-      ourHTMLString += '<div class="report_title_block"><h2 class="report_header">' + greport_title + '</h2></div>';
+      ourHTMLString += '<div class="report_title_block"><h2 class="report_header">' + split_report + '</h2><hr></div>';
       ourHTMLString += '<div class="report_block"><p>';
       ourHTMLString += postsData[i].cmb2.report_metabox._cmb2_guide_report;
-      ourHTMLString += '<br /><a href=" ' + new_Link + '"> Read More</a></p>';
+      ourHTMLString += '<br /><a href=" ' + new_Link + '" class="report_more_btn"> Read More</a></p>';
       ourHTMLString += '</div>';
       ourHTMLString += '</div>';
       ourHTMLString += '</div>';

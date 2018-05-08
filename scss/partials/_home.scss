@@ -20,6 +20,40 @@ body.home{
     #metolius{
         display:none;
     }
+    .report_title_block{
+        width: 25%;
+        background-color: #3d3d3d;
+        display: block;
+        padding: 1.5em 1.5em 1.5em 1.5em;
+        float:left;
+        margin-right: 2%;
+        h2{
+            text-transform: uppercase;
+            color:#fff;
+            font-size:3.0em;
+            font-weight: 300;
+            line-height: 1;
+        }
+    }
+    .report_block{
+        width:70%;
+        float:left;
+    }
+    .feed_block{
+        border-bottom: 1px solid #3d3d3d;
+    }
+    .report_more_btn{
+        display: block;
+        color:#3d3d3d;
+        padding:0.5em 1.0em;
+        border: 1px solid #3d3d3d;
+        float:right;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            background-color: #3d3d3d;
+            color:#fff;
+        }
+    }
 } //end body.home
 h1, h2, h3, h4, h5, h6{
     font-family: $primayHeaderFont;
@@ -176,7 +210,7 @@ div.author_block{
 }
 div.report_block{
     display:block;
-    float:none;
+    // float:none;
     // width:98%;
     // padding: 1.0em;
 }
@@ -217,6 +251,16 @@ div.feed_content{
   opacity: 1;
   transition: 2.5s opacity;
   position:relative;
+  background-image: url('../images/ecailles.png');
+  padding-top: 5.0em;
+  .river_feed_header{
+    text-align: center;
+    background-image: url('../images/ecailles.png');
+    padding: 0.5em;
+  }
+  hr.guide_line{
+    margin-top: -2%;
+  }
 }
 #home-loaded-content.fade-out {
     opacity: 0;
@@ -227,7 +271,7 @@ div.feed_content{
   position:absolute;
   left:0;
   right:0;
-  top:50%;
+  top:30%;
   bottom:0;
 }
 
