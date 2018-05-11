@@ -23,7 +23,7 @@ body.page-template-trips{
 			display:block;
 		}
 	}
-	@media only screen and (max-width: 669px) {
+	@media only screen and (max-width: 768px) {
 		.river_title{
 			display:none;
 		}
@@ -31,5 +31,26 @@ body.page-template-trips{
 			margin-top: 10px!important;
 		}
 	}
+	
+}
 
+.book_trip_container{
+	button{
+		margin-bottom: 2.0em;
+	}
+	h2{
+		width:100%;
+		background-color: $blackboard!important;
+		color:#fff;
+		padding: 0.125em 1.0em;
+		margin-bottom: 0.25em!important;
+		font-family: $primayHeaderFont!important;
+		@media only screen and (max-width: 768px) {
+			font-size: 23px!important;
+			padding: 0.5em 1.0em;
+		}
+	}
+	p{
+		margin-bottom: 0.5em!important;
+	}
 }

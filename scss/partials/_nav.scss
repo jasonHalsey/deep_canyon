@@ -6,6 +6,9 @@
   @media (max-width:668px) and (min-width:378px) {
     position: relative;
   }
+  @media only screen and (max-width: 768px) {
+      position:relative;
+  }
 }
 
 .menu-icon{

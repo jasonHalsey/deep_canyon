@@ -77,7 +77,18 @@ jQuery(document).ready(function() {
 
   // moveCalNav();
   pageTitleOffset();
-  pageContentOffset();
+
+
+  if (Modernizr.mq('only screen and (min-width: 769px)')) {
+   pageContentOffset();
+
+  }
+
+
+
+
+  
+  
   // header_split();
   
 }); //End Main Doc Ready
@@ -89,7 +100,10 @@ jQuery(window).scroll(function(){
 
 jQuery(window).resize(function(){
     pageTitleOffset();
-    pageContentOffset()
+    if (Modernizr.mq('only screen and (min-width: 769px)')) {
+   pageContentOffset();
+
+  }
 });
 
 jQuery(window).scroll(function() {
@@ -107,6 +121,8 @@ jQuery(window).scroll(function() {
     }
   }
 });
+
+
 
 // River Report Hero Sizing
 function pageContentOffset() {

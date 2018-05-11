@@ -34,10 +34,19 @@ body.home{
             font-weight: 300;
             line-height: 1;
         }
+        @media only screen and (max-width: 1040px) {
+            width:100%;
+            h2{
+                font-size: 2.0em;
+            }
+        }
     }
     .report_block{
         width:70%;
         float:left;
+        @media only screen and (max-width: 1040px) {
+            width:100%;
+        }
     }
     .feed_block{
         border-bottom: 1px solid #3d3d3d;
@@ -239,6 +248,10 @@ div.feed_row{
     max-width: 100%;
     .columns{
         padding:0;
+    }
+    @media only screen and (max-width: 1625px) {
+        padding-left:2.0em;
+        padding-right: 2.0em;
     }
 }
 div.feed_content{

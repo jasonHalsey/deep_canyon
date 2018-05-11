@@ -110,7 +110,10 @@ function initialise (flowLat, flowLong, zoomLevel, bgimage, subTitle, riverRepor
   riverReportContain.innerHTML = riverReportPopHTML;
   guideReportContain.innerHTML = guideReportPopHTML;
   speciesListContain.innerHTML = x;
-  hatchListContain.innerHTML = b;
+  if( b ) {
+    hatchListContain.innerHTML = b;
+  }
+  
   
   //End of API Population
 

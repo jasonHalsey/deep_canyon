@@ -26,33 +26,42 @@ Template Name: river_report
   if( is_page('middle-deschutes')){
     $report_id = 32;
     $scriptType = 2;
+    $bookTitle = 'The Middle Deschutes River';
   } elseif( is_page('davis-lake')) {
      $report_id = 123;
      $scriptType = 2;
+     $bookTitle = 'Davis Lake';
   } elseif( is_page('mckenzie-river')) {
      $report_id = 118;
      $scriptType = 1;
+     $bookTitle = 'The McKenzie River';
   } elseif( is_page('crooked-river')) {
      $report_id = 115;
      $scriptType = 2;
+     $bookTitle = 'The Crooked River';
   } elseif( is_page('lower-deschutes')) {
      $report_id = 34;
      $scriptType = 1;
+     $bookTitle = 'The Lower Deschutes River';
   } elseif( is_page('east-lake')) {
      $report_id = 119;
      $scriptType = 2;
+     $bookTitle = 'East Lake';
   } elseif( is_page('fall-river')) {
      $report_id = 120;
      $scriptType = 2;
+     $bookTitle = 'The Fall River';
   } elseif( is_page('crane-prairie-reservoir')) {
      $report_id = 121;
      $scriptType = 2;
   } elseif( is_page('hosmer-lake')) {
      $report_id = 122;
      $scriptType = 2;
-  } elseif( is_page('upper-deschutes-river')) {
+     $bookTitle = 'Hosmer Lake';
+  } elseif( is_page('upper-deschutes')) {
      $report_id = 2029;
      $scriptType = 2;
+     $bookTitle = 'The Upper Deschutes River';
   } 
 ?>
   
@@ -125,6 +134,16 @@ Template Name: river_report
                   <div class="usgs_link"></div>
                 </div>
               </div>
+              <div class="book_trip_container">
+
+               <?php if( get_field('btn_code_1') ): ?>
+                   <?php the_field('btn_code_1'); ?>
+                <?php endif; ?>
+             
+                <?php if( get_field('btn_code_2') ): ?>
+                    <?php the_field('btn_code_2'); ?>
+                <?php endif; ?>
+              </div>
           </div>
               
           <div class="large-4 medium-4 columns sidebar"> 
@@ -135,7 +154,7 @@ Template Name: river_report
 
             <h3>Current Hatches</h3>                     
             <ul id="the_hatch_list">
-
+              <li>No Current Hatch Information</li>
             </ul>
   
            

@@ -24,6 +24,14 @@ Template Name: trip template
 				<h2 class="mobile_title"><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			</div>
+			<div class="book_trip_container">
+                <?php if( get_field('btn_code_1') ): ?>
+                    <span><?php the_field('btn_code_1'); ?></span>
+                <?php endif; ?>
+                <?php if( get_field('btn_code_2') ): ?>
+                    <span><?php the_field('btn_code_2'); ?></span>
+                <?php endif; ?>
+              </div>
 		</section>
 	</div>
 <?php endwhile; ?>

@@ -25,7 +25,7 @@ window.onload = function(){
       var hatchList = response.hatchList;
       var riverTitle = response.riverTitle;
 
-      console.log(hatchList);
+      // console.log(hatchList);
       initialise(usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guideReport, modifiedDate, speciesList, hatchList, riverTitle);
   
     } else {
@@ -84,8 +84,8 @@ function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guid
   guideReportPopHTML = '<p>' + guideReport + '</p>';
   titlePopHTML = '<h1>' + riverTitle + '</h1>';
 
-  console.log(titlePopHTML);
-  console.log(lowerRiverTitleContain);
+  // console.log(titlePopHTML);
+  // console.log(lowerRiverTitleContain);
   //Loop Through Targeted Species List
     var myObj, i, x = "";
       myObj = speciesList;
@@ -114,7 +114,7 @@ function initialise (usgsNumber, zoomLevel, bgimage, subTitle, riverReport, guid
   speciesListContain.innerHTML = x;
   hatchListContain.innerHTML = b;
   
-  console.log(modifiedDate);
+  // console.log(modifiedDate);
 
 
 
