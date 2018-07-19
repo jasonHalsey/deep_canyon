@@ -7,9 +7,10 @@ Template Name: staff_single
 
 <?php while ( have_posts() ) : the_post(); ?>
   <?php if ( is_single() ) : ?>
-
+  <?php global $post;
+    $post_slug=$post->post_name; ?>
   <section class="fixed_img_container">
-    <img src="<?php echo get_post_meta( $post->ID, '_cmb2_staff_image', true ); ?>" />
+    <img class="staff_img_<?php echo $post_slug; ?>" src="<?php echo get_post_meta( $post->ID, '_cmb2_staff_image', true ); ?>" />
   </section>
   <section class="river_title">
     <h1><?php the_title() ?></h1>

@@ -1,5 +1,5 @@
   
-	<form action="//confluenceflyshop.us7.list-manage.com/subscribe/post?u=3a1d8dbff3b469088b20d7246&amp;id=e2672a7451" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer-form" target="_blank" novalidate>
+	<form action="//confluenceflyshop.us7.list-manage.com/subscribe/post?u=3a1d8dbff3b469088b20d7246&amp;id=4b2fe2d2d9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer-form" target="_blank" novalidate>
       <div class="row">
         <div class="medium-9 medium-push-3 columns">
          <p class="hours-title">Newsletter Sign-Up</p> 

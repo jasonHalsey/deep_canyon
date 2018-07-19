@@ -6,11 +6,12 @@ Template Name: trip template
 ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
-
+  <?php global $post;
+    $post_slug=$post->post_name; ?>
 
 
 	<section id="main_header_image" class="fixed_img_container">
-		<img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" />
+		<img class="trip_header_<?php echo $post_slug; ?>" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" />
 	</section>
 	<section id="the_river_title" class="river_title">
 		 <h1><?php the_title() ?></h1>

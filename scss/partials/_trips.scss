@@ -10,6 +10,9 @@ body.page-template-trips{
 	    padding: 40px 4em !important;
 	    margin: 0 auto;
 	    max-width: 1600px;
+	    @media only screen and (max-width: 768px) {
+	    	padding:40px 2em !important;
+	    }
 	}
 	h2.mobile_title{
 		display:none;

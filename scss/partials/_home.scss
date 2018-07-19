@@ -155,6 +155,7 @@ ul{
     }
      @media only screen and (max-width: 50em) {
         width:50%;
+        display:none;
      }
 }
 .title_logo{
@@ -272,7 +273,7 @@ div.feed_content{
     padding: 0.5em;
   }
   hr.guide_line{
-    margin-top: -2%;
+    // margin-top: -2%;
   }
 }
 #home-loaded-content.fade-out {

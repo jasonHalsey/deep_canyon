@@ -29,7 +29,7 @@ get_header(); ?>
       </div>
       <div class="large-3 medium-6 small-12 columns">
         <figure class="effect-oscar">
-          <img src="<?php echo bloginfo('template_directory'); ?>/images/guide_bg_2.jpg" alt="Guided Trips"/>
+          <img src="<?php echo bloginfo('template_directory'); ?>/images/camping_cta.jpg" alt="Guided Trips"/>
           <figcaption>
             <h2>Camping <span>Trips</span></h2>
             <p>Book a trip to get your adventure started</p>
@@ -40,10 +40,10 @@ get_header(); ?>
 
       <div class="large-3 medium-6 small-12 columns">
         <figure class="effect-oscar">
-          <img src="<?php echo bloginfo('template_directory'); ?>/images/blog_bg_2.jpg" alt="Blog Posts"/>
+          <img src="<?php echo bloginfo('template_directory'); ?>/images/half_day_cta.jpg" alt="Half-Day Trips"/>
           <figcaption>
             <h2>Half Day<span>Trips</span></h2>
-            <p>Stay Connected</p>
+           <p>Book a trip to get your adventure started</p>
             <a href="<?php echo home_url( '/half-day-trips' ); ?>">View more</a>
           </figcaption>     
         </figure>
@@ -51,11 +51,11 @@ get_header(); ?>
 
       <div class="large-3 medium-6 small-12 columns">
         <figure class="effect-oscar">
-          <img src="<?php echo bloginfo('template_directory'); ?>/images/Classes.jpg" alt="Fishing Events"/>
+          <img src="<?php echo bloginfo('template_directory'); ?>/images/full_day_cta.jpg" alt="Fishing Events"/>
           <figcaption>
             <h2 class="lng_title">Full Day<span>Trips</span></h2>
-            <p>See What's Going On</p>
-            <a href="<?php echo home_url( '/full-day-trips' ); ?>">View more</a>
+            <p>Book a trip to get your adventure started</p>
+            <a href="<?php echo home_url( '/full-day' ); ?>">View more</a>
           </figcaption>     
         </figure>
       </div>

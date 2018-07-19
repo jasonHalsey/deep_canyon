@@ -58,8 +58,8 @@ Template Name: river_report
      $report_id = 122;
      $scriptType = 2;
      $bookTitle = 'Hosmer Lake';
-  } elseif( is_page('upper-deschutes')) {
-     $report_id = 2029;
+  } elseif( is_page('upper-deschutes-river')) {
+     $report_id = 29;
      $scriptType = 2;
      $bookTitle = 'The Upper Deschutes River';
   } 

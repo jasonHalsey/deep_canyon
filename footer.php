@@ -6,8 +6,8 @@
       <p class="footer_logo show-for-small-only"><i class="icon-reel_icon"></i> Deep Canyon</p> 
 
       <ul class="inline-list social">
-        <a href="https://www.facebook.com/ConfluenceFlyShop/?fref=ts"><i class="icon-facebook"></i></a>
-        <a href="https://www.instagram.com/confluenceflyshop/"><i class="icon-instagram"></i></a>
+        <a href="hhttps://www.facebook.com/deepcanyonoutfitters/"><i class="icon-facebook"></i></a>
+        <a href="https://www.instagram.com/deepcanyonoutfitters/"><i class="icon-instagram"></i></a>
       </ul>
       <p class="copywrite">&copy; Deep Canyon Outfitters <?php echo date("Y"); ?></p>
     </div>

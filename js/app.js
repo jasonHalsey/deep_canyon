@@ -7,6 +7,67 @@ jQuery(window).on("load", function() {
 
 jQuery(document).ready(function() {
 
+
+jQuery('.staff_img_jared-burton').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/jared_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_tye-krueger').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/tye_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_andy-maphet').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/Andy-lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_toby-nolan').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/toby_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_jake-peet').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/walk-in-trip-header.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_reid-curry').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/reid_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_landon-mace').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/landon_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_brendan-cushen').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/brendan_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_jeremiah-houle').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/jeremiah_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.staff_img_michael-divita').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/mike_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+
+jQuery('.trip_header_full-day').attr('src', 'http://www.deepcanyonoutfitters.com/wp-content/uploads/2018/03/full-day-trip-header.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.trip_header_half-day-trips').attr('src', 'http://www.deepcanyonoutfitters.com/wp-content/uploads/2018/07/half_day_header.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.trip_header_camping-trips').attr('src', 'http://www.deepcanyonoutfitters.com/wp-content/uploads/2018/07/camping_header.jpg').load(function() {  
+   pageContentOffset();
+
+});
+jQuery('.trip_header_page-not-found').attr('src', 'http://www.deepcanyonoutfitters.com/wp-content/uploads/2018/03/reid_lg.jpg').load(function() {  
+   pageContentOffset();
+
+});
+
+
+
   function openFirstPanel(){
     jQuery('.accordion > dt:first-child').next().addClass('active').slideDown();
   }
@@ -79,16 +140,12 @@ jQuery(document).ready(function() {
   pageTitleOffset();
 
 
-  if (Modernizr.mq('only screen and (min-width: 769px)')) {
-   pageContentOffset();
+  if (Modernizr.mq('only screen and (min-width: 770px)')) {
+   // pageContentOffset();
+
 
   }
 
-
-
-
-  
-  
   // header_split();
   
 }); //End Main Doc Ready
@@ -101,23 +158,25 @@ jQuery(window).scroll(function(){
 jQuery(window).resize(function(){
     pageTitleOffset();
     if (Modernizr.mq('only screen and (min-width: 769px)')) {
-   pageContentOffset();
+      pageContentOffset();
 
-  }
+    }
 });
 
 jQuery(window).scroll(function() {
 
-  if (jQuery('body').hasClass('home')){
-    if (jQuery(window).scrollTop() > 100) {
-        jQuery('.title_logo').slideDown('slow');
-        jQuery('#phone_container').slideDown('slow');
-        jQuery('ul.submenu').addClass('biggap');
-    }
-    else {
-        jQuery('.title_logo').slideUp('slow');
-        jQuery('#phone_container').slideUp('slow');
-        jQuery('ul.submenu').removeClass('biggap');
+  if (Modernizr.mq('only screen and (min-width: 770px)')) {
+    if (jQuery('body').hasClass('home')){
+      if (jQuery(window).scrollTop() > 100) {
+          jQuery('.title_logo').slideDown('slow');
+          jQuery('#phone_container').slideDown('slow');
+          jQuery('ul.submenu').addClass('biggap');
+      }
+      else {
+          jQuery('.title_logo').slideUp('slow');
+          jQuery('#phone_container').slideUp('slow');
+          jQuery('ul.submenu').removeClass('biggap');
+      }
     }
   }
 });
@@ -128,7 +187,6 @@ jQuery(window).scroll(function() {
 function pageContentOffset() {
   var heroheight = jQuery(".fixed_img_container > img").height();
   var pushheight = (heroheight / 2) - 70;
-  console.log(pushheight);
   jQuery('.river_title h1').css({
     marginTop : pushheight,
     transition : 'margin-top 1s ease-in-out'
@@ -144,6 +202,23 @@ function pageTitleOffset() {
   jQuery('.river_archive_hero').css('height',menuheight );
 }
 
+// function loadedImages() {
+//   console.log('In Loaded');
+//   var imgs = document.images,
+//     len = imgs.length,
+//     counter = 0;
+
+//   [].forEach.call( imgs, function( img ) {
+//       img.addEventListener( 'load', incrementCounter, false );
+//   } );
+
+//   function incrementCounter() {
+//       counter++;
+//       if ( counter === len ) {
+//           console.log( 'All images loaded!' );
+//       }
+//   }
+// }
 
 
   // Add Yelp Reviews to Sidebar
@@ -176,3 +251,4 @@ function pageTitleOffset() {
       }, scroll_top_duration
     );
   });
+
