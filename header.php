@@ -18,7 +18,7 @@
   </head>
 <body <?php body_class(); ?>>
 <?php get_template_part( 'inc/options'); ?>
-<div class="fixed_nav">
+<div>
   <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
     <img class="show-for-small-only" src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white.svg" alt="Confluence Fly Shop"/>
     <button class="menu-icon" type="button" data-toggle></button>
@@ -42,8 +42,8 @@
       'menu_id' => 'menu', 
       'theme_location' => 'primary-menu', 
       'menu_class' => 'dropdown menu', 
-      'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
-      'walker' => new F6_TOPBAR_MENU_WALKER(),
+      // 'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>',
+      // 'walker' => new F6_TOPBAR_MENU_WALKER(),
       // 'container' => false 
       ) ); ?>
 	  </div>

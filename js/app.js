@@ -1,4 +1,3 @@
-jQuery(document).foundation();
 
 jQuery(window).on("load", function() {
   // pageContentOffset();
@@ -153,9 +152,9 @@ jQuery('.trip_header_page-not-found').attr('src', 'http://www.deepcanyonoutfitte
 }); //End Main Doc Ready
 
 
-jQuery(window).scroll(function(){
-    jQuery(".logo").css("opacity", 1 - jQuery(window).scrollTop() / 100);
-});
+// jQuery(window).scroll(function(){
+//     jQuery(".logo").css("opacity", 1 - jQuery(window).scrollTop() / 100);
+// });
 
 jQuery(window).resize(function(){
     pageTitleOffset();
@@ -165,23 +164,23 @@ jQuery(window).resize(function(){
     }
 });
 
-jQuery(window).scroll(function() {
+// jQuery(window).scroll(function() {
 
-  if (Modernizr.mq('only screen and (min-width: 770px)')) {
-    if (jQuery('body').hasClass('home')){
-      if (jQuery(window).scrollTop() > 100) {
-          jQuery('.title_logo').slideDown('slow');
-          jQuery('#phone_container').slideDown('slow');
-          jQuery('ul.submenu').addClass('biggap');
-      }
-      else {
-          jQuery('.title_logo').slideUp('slow');
-          jQuery('#phone_container').slideUp('slow');
-          jQuery('ul.submenu').removeClass('biggap');
-      }
-    }
-  }
-});
+//   if (Modernizr.mq('only screen and (min-width: 770px)')) {
+//     if (jQuery('body').hasClass('home')){
+//       if (jQuery(window).scrollTop() > 100) {
+//           jQuery('.title_logo').slideDown('slow');
+//           jQuery('#phone_container').slideDown('slow');
+//           jQuery('ul.submenu').addClass('biggap');
+//       }
+//       else {
+//           jQuery('.title_logo').slideUp('slow');
+//           jQuery('#phone_container').slideUp('slow');
+//           jQuery('ul.submenu').removeClass('biggap');
+//       }
+//     }
+//   }
+// });
 
 
 

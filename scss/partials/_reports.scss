@@ -157,10 +157,10 @@ h3.river_sub_title{
     transition: transform 0.35s;
     -webkit-transform: translate3d(0,100%,0);
     transform: translate3d(0,100%,0);
-    @include breakpoint(1600px) {
+    @media (max-width: 1600px){
       margin: 10px 0 10px 0
     }
-    @include breakpoint(639px down) {
+    @media (max-width: 639px){
       margin: 30% 0 10px 0
     }
   }
@@ -177,7 +177,7 @@ h3.river_sub_title{
   figure.effect-oscar_report:hover h2 {
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
-    @include breakpoint(1600px) {
+    @media (max-width: 1600px){
       margin: -4% 0 10px 0;
     }
   }

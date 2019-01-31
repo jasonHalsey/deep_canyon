@@ -6,9 +6,6 @@ get_header(); ?>
 
     <div class="hero_row">
       <div class="large-12 columns hero">
-      <div class="logo">
-        <img src="<?php echo bloginfo('template_directory'); ?>/images/deepcanyonvector_white_shadow.png" alt="Deep Canyon Outfitters"/>
-      </div>
         <?php echo do_shortcode("[rev_slider alias='homeSlide']"); ?>
       </div>
       <!-- <div class="hero-arrow-down downarrow">

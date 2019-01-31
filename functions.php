@@ -89,13 +89,13 @@ add_filter('excerpt_more', 'new_excerpt_more');
 	function wpb_adding_scripts() {
 
 		$vars = "value";
-	  wp_register_script('what', get_stylesheet_directory_uri() . '/bower_components/what-input/what-input.js');
-    wp_register_script('foundation', get_stylesheet_directory_uri() . '/bower_components/foundation-sites/dist/foundation.js');
+	  // wp_register_script('what', get_stylesheet_directory_uri() . '/bower_components/what-input/what-input.js');
+   //  wp_register_script('foundation', get_stylesheet_directory_uri() . '/bower_components/foundation-sites/dist/foundation.js');
     wp_register_script('rss', get_stylesheet_directory_uri() . '/js/jquery.rss.js');
 	  wp_register_script('app', get_stylesheet_directory_uri() . '/js/app.js');
     // wp_register_script('rest', get_stylesheet_directory_uri() . '/js/rest.js');
     // wp_register_script('moment', get_stylesheet_directory_uri() . '/js/moment.min.js');
-	  wp_register_script('mapbox', 'https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js');
+	  // wp_register_script('mapbox', 'https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js');
 
 
     wp_register_script(
@@ -114,10 +114,10 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
     wp_enqueue_script('js_url');
 
-	  wp_enqueue_script('what');
-	  wp_enqueue_script('foundation');
+	  // wp_enqueue_script('what');
+	  // wp_enqueue_script('foundation');
 	  
-	  wp_enqueue_script('mapbox');
+	  // wp_enqueue_script('mapbox');
     // wp_enqueue_script('moment');
     wp_enqueue_script('rss');
     // wp_enqueue_script('rest');
@@ -130,7 +130,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 	add_action( 'wp_footer', 'wpb_adding_scripts' ); 
 
 
-include(locate_template('inc/walker.php'));
+// include(locate_template('inc/walker.php'));
 
 /*  Theme Options Page
 /* ------------------------------------ */ 
