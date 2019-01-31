@@ -71,18 +71,7 @@ get_header(); ?>
     ?>
   </div>
 </div>
-<div class="row feed_row">
-  <div id="home-spin-loader" class="spinner"></div>
-  <section id="home-loaded-content" class="fade-out">
-    <h2 class="river_feed_header">Guide Reports</h2><hr class="guide_line">
-    <div class="feed_content">
-      
-      <div id="portfolio-posts-container" ></div>
 
-    </div><!-- END FEED_CONTENT -->
-
-  </section>
-</div><!-- END FEED_ROW -->
 
     
 <div class="insta_footer">

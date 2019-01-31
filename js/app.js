@@ -8,10 +8,21 @@ jQuery(window).on("load", function() {
 jQuery(document).ready(function() {
 
 
-jQuery('.staff_img_jared-burton').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/jared_lg.jpg').load(function() {  
+
+
+
+jQuery('.staff_img_jared-burton').attr('src', globalObject.url + '/wp-content/uploads/2018/03/jared_lg.jpg').load(function() {  
    pageContentOffset();
 
 });
+
+
+
+
+// jQuery('.staff_img_jared-burton').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/jared_lg.jpg').load(function() {  
+//    pageContentOffset();
+
+// });
 jQuery('.staff_img_tye-krueger').attr('src', 'http://confluencefly.wpengine.com/wp-content/uploads/2018/03/tye_lg.jpg').load(function() {  
    pageContentOffset();
 
@@ -136,17 +147,8 @@ jQuery('.trip_header_page-not-found').attr('src', 'http://www.deepcanyonoutfitte
 
   });
 
-  // moveCalNav();
   pageTitleOffset();
 
-
-  if (Modernizr.mq('only screen and (min-width: 770px)')) {
-   // pageContentOffset();
-
-
-  }
-
-  // header_split();
   
 }); //End Main Doc Ready
 
@@ -202,27 +204,7 @@ function pageTitleOffset() {
   jQuery('.river_archive_hero').css('height',menuheight );
 }
 
-// function loadedImages() {
-//   console.log('In Loaded');
-//   var imgs = document.images,
-//     len = imgs.length,
-//     counter = 0;
 
-//   [].forEach.call( imgs, function( img ) {
-//       img.addEventListener( 'load', incrementCounter, false );
-//   } );
-
-//   function incrementCounter() {
-//       counter++;
-//       if ( counter === len ) {
-//           console.log( 'All images loaded!' );
-//       }
-//   }
-// }
-
-
-  // Add Yelp Reviews to Sidebar
- (function() { var s = document.createElement("script");s.async = true;s.onload = s.onreadystatechange = function(){getYelpWidget("deep-canyon-outfitters-bend","300","RED","y","y","3");};s.src='http://chrisawren.com/widgets/yelp/yelpv2.js' ;var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})();
 
 //Back To Top Scrolling
   // browser window scroll (in pixels) after which the "back to top" link is shown

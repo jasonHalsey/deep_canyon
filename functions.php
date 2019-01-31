@@ -94,23 +94,37 @@ add_filter('excerpt_more', 'new_excerpt_more');
     wp_register_script('rss', get_stylesheet_directory_uri() . '/js/jquery.rss.js');
 	  wp_register_script('app', get_stylesheet_directory_uri() . '/js/app.js');
     // wp_register_script('rest', get_stylesheet_directory_uri() . '/js/rest.js');
-    wp_register_script('moment', get_stylesheet_directory_uri() . '/js/moment.min.js');
+    // wp_register_script('moment', get_stylesheet_directory_uri() . '/js/moment.min.js');
 	  wp_register_script('mapbox', 'https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js');
+
+
+    wp_register_script(
+      'js_url',
+      get_stylesheet_directory_uri(),
+      array(), '1.0.0', true
+    );
+
+    wp_localize_script(
+      'js_url',
+      'globalObject',
+      array(
+        'homeUrl' => esc_url(home_url())
+      )
+    );
+
+    wp_enqueue_script('js_url');
 
 	  wp_enqueue_script('what');
 	  wp_enqueue_script('foundation');
 	  
 	  wp_enqueue_script('mapbox');
-    wp_enqueue_script('moment');
+    // wp_enqueue_script('moment');
     wp_enqueue_script('rss');
     // wp_enqueue_script('rest');
     wp_enqueue_script('app');
 
 
-    if (is_home()) {
-        // wp_enqueue_script('rest', get_stylesheet_directory_uri() . '/js/rest.js');
-        wp_enqueue_script( 'rest', get_template_directory_uri() . '/js/rest.js', array(), '1.0.0', true );
-    }
+   
 
 	}
 	add_action( 'wp_footer', 'wpb_adding_scripts' ); 
@@ -259,33 +273,7 @@ function post_type_staff()
   flush_rewrite_rules();
 }; 
 
-// ----------------- Creates Report Post Type
-// add_action('init', 'post_type_report');
-// function post_type_report() 
-// {
-//   $labels = array(
-//     'name' => _x('Fishing Reports', 'post type general name'),
-//     'singular_name' => _x('Fishing Report', 'post type singular name'),
-//     'add_new' => _x('Add New Fishing Report', 'report'),
-//     'add_new_item' => __('Add New Fishing Report')
-//   );
- 
-//  $args = array(
-//     'labels' => $labels,
-//     'public' => true,
-//     'publicly_queryable' => true,
-//     'show_ui' => true, 
-//     'query_var' => true,
-//     'rewrite' => array( 'slug' => 'report' ),
-//     'capability_type' => 'post',
-//     'hierarchical' => false,
-//     'menu_position' => null,
-//     'show_in_rest' => true,
-//     'supports' => array('title','excerpt', 'thumbnail')
-//     ); 
-//   register_post_type('report',$args);
-//   flush_rewrite_rules();
-// };  
+
 
 /**
  * Include and setup custom metaboxes and fields. (make sure you copy this file to outside the CMB directory)
@@ -892,6 +880,7 @@ function my_list_images($list_images, $cpt){
         );
     return $picts;
 }
+
 
 
 /**
